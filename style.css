@@ -1,0 +1,79 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgba(211, 211, 211, .5);
+  margin: 0px;
+  font-family: 'poppins', sans-serif;
+}
+
+.page-title {
+  background: rgba(135, 206, 250, .5);
+  margin: 0px;
+  padding: 20px;
+  height: 75px;
+  
+}
+
+.add-book {
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.input-form {
+  background: whitesmoke;
+  border: none;
+  display: none;
+}
+
+form {
+  width: fit-content;
+  margin: auto;
+
+}
+
+.input-field {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  text-align: end;
+}
+
+input {
+  width: 200px;
+  padding: 5px;
+}
+
+.submit-field {
+  text-align: center;
+}
+
+.library-container {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.library-container > ul {
+  border: 2px solid black;
+  min-width: 170px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+
+
+

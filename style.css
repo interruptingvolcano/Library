@@ -5,17 +5,24 @@
 }
 
 body {
-  background: rgba(211, 211, 211, .5);
-  margin: 0px;
-  font-family: 'poppins', sans-serif;
+  margin: 20px;
+  font-family: "Keep on Truckin'", sans-serif;
 }
 
 .page-title {
-  background: rgba(135, 206, 250, .5);
-  margin: 0px;
-  padding: 20px;
+  text-shadow: rgb(229, 184, 184) 2px 7px;
+  margin: 10px;
   height: 75px;
-  
+  font-size: 3.5rem;
+  letter-spacing: 5px;
+}
+
+.guitar-icon{
+  width: 100px;
+}
+
+.top-head {
+  text-align: center;
 }
 
 .add-book {
@@ -23,6 +30,7 @@ body {
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  background:rgb(229, 184, 184);
 }
 
 .input-form {
@@ -34,6 +42,9 @@ body {
 form {
   width: fit-content;
   margin: auto;
+  background:rgb(229, 184, 184);
+  padding: 15px;
+  border-radius: 10px;
 
 }
 
@@ -60,18 +71,29 @@ input {
 .library-container {
   display: flex;
   flex-wrap: wrap;
-  
+  max-width: 810px;
+  height: 300px;
+  /* background: rgb(229, 184, 184); */
+  background: url('assets/crowd.jpeg');
+  background-size: cover;
+  border-radius: 10px;
+  padding: 25px;
+  margin: auto;
 }
 
 .library-container > ul {
-  border: 2px solid black;
+  background: rgb(229, 184, 184);
   min-width: 170px;
-  height: 200px;
+  height: 230px;
   margin-right: 20px;
+  box-shadow: gray 5px 5px;
 }
 
 li {
   list-style: none;
+  margin-top: 20px;
+  font-size: .7rem;
+  text-align: center;
 }
 
 

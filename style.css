@@ -5,19 +5,30 @@
 }
 
 body {
-  margin: 20px;
+  margin: 0px 50px;
   font-family: "Keep on Truckin'", sans-serif;
+  background-color: rgb(62, 61, 58);
+}
+
+.main-container {
+  margin: 0px 50px;
+  background-color: whitesmoke;
+  padding: 30px 0px;
+  height: 100%;
+  /* border: 5px solid black; */
+  border-radius: 10px;
 }
 
 .page-title {
-  text-shadow: rgb(229, 184, 184) 2px 7px;
+  text-shadow: rgb(230, 170, 0) 2px 7px;
   margin: 10px;
+  text-align: center;
   height: 75px;
-  font-size: 3.5rem;
+  font-size: 5rem;
   letter-spacing: 5px;
 }
 
-.guitar-icon{
+.guitar-icon {
   width: 100px;
 }
 
@@ -25,12 +36,14 @@ body {
   text-align: center;
 }
 
-.add-book {
-  font-size: 2rem;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  background:rgb(229, 184, 184);
+.add-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.add-book:hover {
+  cursor: pointer; 
 }
 
 .input-form {
@@ -39,13 +52,24 @@ body {
   display: none;
 }
 
+h2 {
+  text-align: center;
+}
+
 form {
   width: fit-content;
   margin: auto;
-  background:rgb(229, 184, 184);
+  background:rgba(255, 195, 26, .5);
   padding: 15px;
   border-radius: 10px;
+  position: relative;
+}
 
+.form-container::after {
+  content:  url('assets/electric-guitar.png');
+  position: absolute;
+  right: 70px;
+  bottom: 300px;
 }
 
 .input-field {
@@ -62,31 +86,60 @@ label {
 input {
   width: 200px;
   padding: 5px;
+  border-radius: 5px;
 }
 
 .submit-field {
   text-align: center;
 }
 
+button {
+  background: white;
+  border-radius: 5px;
+}
+
 .library-container {
+  /* border: solid black 5px; */
+  background: rgba(255, 195, 26, .3);
   display: flex;
   flex-wrap: wrap;
-  max-width: 810px;
-  height: 300px;
-  /* background: rgb(229, 184, 184); */
-  background: url('assets/crowd.jpeg');
+  max-width: 850px;
+  min-height: 300px;
   background-size: cover;
   border-radius: 10px;
-  padding: 25px;
+  padding: 25px 0px 25px 40px;
   margin: auto;
+  margin-top: 20px;
+  position: relative;
 }
 
 .library-container > ul {
-  background: rgb(229, 184, 184);
-  min-width: 170px;
+  background: rgba(255, 195, 26);
+  width: 170px;
   height: 230px;
   margin-right: 20px;
-  box-shadow: gray 5px 5px;
+  box-shadow: black 10px 3px;
+  border-radius: 1px;
+  position: relative;
+}
+
+.library-container::before {
+  content:  url('assets/electric-guitar_2.png');
+  position: absolute;
+  left: -100px;
+
+}
+
+.read-container {
+  width: 30px;
+  margin-right: 35px;
+  margin-bottom: 20px;
+}
+
+.trash-icon {
+  width: 20px;
+  margin-top: 52px;
+  margin-left: -30px;
 }
 
 li {
@@ -94,8 +147,46 @@ li {
   margin-top: 20px;
   font-size: .7rem;
   text-align: center;
+  padding-right: 50px;
+  word-wrap: break-word;
+}
+
+li:nth-child(1) {
+  font-size: 1.2rem;
+}
+
+.read {
+  width: 15px;
 }
 
 
+.read-container {
+  display: flex;
+  position: absolute;
+  bottom: -10px;
+  right: 5px;
+}
+
+.read-container > p {
+  font-size: .9rem;
+}
+
+
+
+@media(max-width: 1100px) {
+  .page-title {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+/* @media(max-width: 600px) {
+  body {
+    background: whitesmoke;
+  }
+} */
 
 

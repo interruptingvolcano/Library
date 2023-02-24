@@ -9,23 +9,23 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="main-container">
   
   <div class="top-head">
     <img class="guitar-icon" src="assets/electric-guitar.png" alt="electric guitar png">
     <h1 class="page-title">LIBRARY OF ROCK
     </h1>
-    <h2>This is where you put all your books about rock and roll!</h2>
 
   </div>
-    
 
-  
+  <div class="add-container">
     
-  <div>
-    <button class="add-book">+</button>
+      <img class="add-book" src="assets/blank-45.webp" alt="45 record add book button">
+     
   </div>
 
   <section class="form-section">
+    <h2>This is where you put all your books about rock and roll!</h2>
     <div class="form-container">
 
       <fieldset class="input-form">
@@ -47,37 +47,35 @@
           </label>
           <input type="text" class="year" id="year" name="year"/>
         </div>
-        
-        <div class="input-field">
-          <label for="publisher">Publisher
-          </label>
-          <input type="text" class="publisher" id="publisher" name="publisher"/>
-        </div>
-        
-        <div class="input-field">
-          <label for="pages">Pages
-          </label>
-          <input type="text" class="pages" id="pages" name="pages"/>
-        </div>
 
+        <div class="input-field">
+          <label for="read">Read?
+          </label>
+          <input type="checkbox" class="read" id="read" name="read" value="read"/>
+        </div>
+        
         <div class="submit-field">
           <button>Submit</button>
         </div>
+        
         
       </form>  
       </fieldset>
       
     </div>
+
   </section>
 
   <section>
     <div class="library-container">
+     
+      
 
     </div>
   </section>
 
   
-
+</div>
 
   
 </body>

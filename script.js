@@ -2,12 +2,23 @@
 let myLibrary = [];
 
 // Book constructor
-function Book(title, author, year) {
+function Book(title, author, year, read) {
   this.title = title;
   this.author = author;
   this.year = year;
   this.read = read;
 };
+
+// toggle read book
+Book.prototype.toggleRead = function() {
+  this.read = !this.read
+}
+
+// need to link myLibrary index for each book to prototype function
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    displayBook();
+}
 
 // Select elements
 const submitButton = document.querySelector(".submit-field");
@@ -20,99 +31,76 @@ const addButton = document.querySelector(".add-book");
 const inputForm = document.querySelector(".input-form");
 const libraryContainer = document.querySelector('.library-container');
 
-
 // Keep books on refresh
 libraryContainer.innerHTML = localStorage.getItem('library');
 
-// Bring up form to enter book details
+// display form to enter book details
 addButton.addEventListener('click', () => {
   inputForm.style.display = 'contents'; 
 });
 
 // Submit form and call display function
-function addBookToLibrary() {
-  submitButton.addEventListener('click', (e) => {
-       
-    e.preventDefault();
-    
-    let userBook = new Book(userTitle.value, userAuthor.value, userYear.value, userRead.value);
-    myLibrary.push(userBook);
-      
+function addBookToLibrary() {  
+    let userBook = new Book(userTitle.value, userAuthor.value, userYear.value, userRead.checked);
+    myLibrary.push(userBook); 
     displayBook();
-    
-    userInputs.forEach((input) => {
-      input.value = ' ';
-    })
-    inputForm.style.display = 'none';
-  }); return userRead;
+
+// remove input entries and input form from page
+  userInputs.forEach((input) => {
+    input.value = '';
+  })
+  inputForm.style.display = 'none';
 };
 
+// listen for submit button click
+submitButton.addEventListener('click', (e) => {      
+  e.preventDefault();
+  addBookToLibrary();
+});
 
 // Display book and add to local storage
 function displayBook() {
-  let libraryItem = '';
-  const libraryArray = [];
+  libraryContainer.innerHTML = '';
 
-  for (let book of myLibrary) {
-    if (localStorage.length > 0) {
-      libraryItem = '<ul>' + '<li>' + book.title + '</li>' + '<li>' + 'by' + '</li>' + '<li>' + book.author + '</li>' + '<li>' + book.year + '</li>' + '<img src="assets/trash_icon.png" class="trash-icon">' + addCheckBox().outerHTML + '</ul>' + localStorage.library;
-      libraryArray.push(libraryItem);
-
-    } else {
-      libraryItem = '<ul>' + '<li>' + book.title + '</li>' + '<li>' + 'by' + '</li>' + '<li>' + book.author + '</li>' + '<li>' + book.year + '</li>' + '<img src="assets/trash_icon.png" class="trash-icon">' + addCheckBox().outerHTML + '</ul>';
-      libraryArray.push(libraryItem);
-
-    };
-    console.log(libraryArray);
-  };
-
-
-  localStorage.setItem('library', libraryItem);
-
-  libraryContainer.innerHTML = localStorage.getItem('library');
-
-};
-
-function addCheckBox() {
-  const readContainer = document.createElement('div');
-  readContainer.setAttribute('class', 'read-container');
-
-  const readLabel = document.createElement('label');
-  readLabel.textContent = "Read?";
-  readLabel.setAttribute('for', 'read');
-
-  const checkBox = document.createElement('input');
-  checkBox.setAttribute('type', 'checkbox');
-  checkBox.setAttribute('id', 'read');
-  checkBox.setAttribute('class', 'check-box' )
-
-  readContainer.appendChild(readLabel);
-
-  readContainer.appendChild(checkBox);
-
-  if (userRead.checked === true) {
-    checkBox.setAttribute('checked', 'checked');
-  } else if (userRead.checked === false) {
-    checkBox.setAttribute('value', 'off');
-  }
-
-  JSON.stringify(readContainer);
-  return readContainer;
-};
-
-addBookToLibrary();
-
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-  checkboxes.forEach((item) => {
-    item.addEventListener('change', () => {
-    if (item.checked === true) {
+  for(i = 0; i < myLibrary.length; i++) {
+    let book = myLibrary[i];
+    let bookEl = document.createElement('div');
+    bookEl.setAttribute('class', 'book-El');
     
-        item.setAttribute('checked', 'checked');
-        
-    } else if (item.checked === false) {
-      item.setAttribute('checked', 'unchecked');
-    }; 
-  }) 
-  });
+    bookEl.innerHTML = `
+    <ul>
+      <li>${book.title}</li>
+      <li>${book.author}</li> <li>${book.year}</li> 
+    <div class="bottom-container"> 
+      <img src="assets/trash_icon.png" class="trash-icon" onclick="removeBook(${i})"></img>   
+      <p class="read-status">${book.read ? "Read" : "Not Read"}</p>
+      <button class='toggle-read-btn' onclick="toggleRead(${i})">Toggle Read</button>    
+      </div>
+    </ul>`;
+    libraryContainer.appendChild(bookEl);
+    
+
+    // console.log(myLibrary[i]);
+  };
+};
+// remove a book
+function removeBook(index) {
+  myLibrary.splice(index, 1);
+  displayBook();
+  
+}
+
+//   for (let book of myLibrary) {
+//     if (localStorage.length > 0) {
+//       libraryItem = '<ul>' + '<li>' + book.title + '</li>' + '<li>' + 'by' + '</li>' + '<li>' + book.author + '</li>' + '<li>' + book.year + '</li>' + '<img src="assets/trash_icon.png" class="trash-icon">' + '<div class="read-container">' + '<label for="read">' + 'Read?' + '</label>' + '<input type="checkbox" id="read" class="check-box" onchange="toggleRead()"/>' + '</div>'+ '</ul>' + localStorage.library;
+
+//     } else {
+//       libraryItem = '<ul>' + '<li>' + book.title + '</li>' + '<li>' + 'by' + '</li>' + '<li>' + book.author + '</li>' + '<li>' + book.year + '</li>' + '<img src="assets/trash_icon.png" class="trash-icon">' + '<div class="read-container">' + '<label for="read">' + 'Read?' + '</label>' + '<input type="checkbox" id="read" class="check-box" onchange="toggleRead()"/>' + '</div>'+ '</ul>';
+//     };
+//   };
+
+//   localStorage.setItem('library', libraryItem);
+
+//   libraryContainer.innerHTML = localStorage.getItem('library');
+// };
 

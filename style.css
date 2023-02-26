@@ -94,8 +94,11 @@ input {
 }
 
 button {
-  background: white;
+  background: black;
   border-radius: 5px;
+  padding: 5px 10px;
+  font-family: "Keep on Truckin'", sans-serif;
+  color: rgba(255, 195, 26);
 }
 
 .library-container {
@@ -113,13 +116,14 @@ button {
   position: relative;
 }
 
-.library-container > ul {
+.library-container > div {
   background: rgba(255, 195, 26);
   width: 170px;
   height: 230px;
   margin-right: 20px;
   box-shadow: black 10px 3px;
   border-radius: 1px;
+  margin-bottom: 50px;
   position: relative;
 }
 
@@ -127,19 +131,14 @@ button {
   content:  url('assets/electric-guitar_2.png');
   position: absolute;
   left: -100px;
-
 }
 
-.read-container {
-  width: 30px;
-  margin-right: 35px;
-  margin-bottom: 20px;
+.book-El {
+  overflow: scroll;
 }
 
-.trash-icon {
-  width: 20px;
-  margin-top: 52px;
-  margin-left: -30px;
+.book-bottom {
+  height: 100px;
 }
 
 li {
@@ -152,25 +151,37 @@ li {
 }
 
 li:nth-child(1) {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  ;
 }
 
 .read {
   width: 15px;
 }
 
-
-.read-container {
-  display: flex;
-  position: absolute;
-  bottom: -10px;
-  right: 5px;
+.trash-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-bottom: -70px;
+  cursor: pointer;
 }
 
-.read-container > p {
-  font-size: .9rem;
+.toggle-read-btn {
+  margin-left: 50px;
+  margin-top: -10px;
+  cursor: pointer;
 }
 
+.read-status {
+  font-size: .8rem;
+  margin-left: 80px;
+}
+
+.bottom-container {
+  margin-left: -20px;
+  margin-top: 30px;
+}
 
 
 @media(max-width: 1100px) {

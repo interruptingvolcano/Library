@@ -37,8 +37,19 @@ const addButton = document.querySelector('.add-book');
 const inputForm = document.querySelector('.input-form');
 const libraryContainer = document.querySelector('.library-container');
 
+// add static book to page
+const staticbookEl = document.createElement('div');
+staticbookEl.setAttribute('class', 'static-book-El');
+staticbookEl.innerHTML = `
+    <ul>
+      <li class="static-title">The Dirt</li>
+      <li>by</li>
+      <li>Neil Strauss</li> <li>2002</li> 
+    </ul>
+    <p class="example-text">**This is an example. When you add your own books, it will disappear.**`;
+libraryContainer.appendChild(staticbookEl);
 // Keep books on refresh
-libraryContainer.innerHTML = localStorage.getItem('library');
+// libraryContainer.innerHTML = localStorage.getItem('library');
 
 // display form to enter book details
 addButton.addEventListener('click', () => {
@@ -78,7 +89,7 @@ function displayBook() {
       <li>${book.author}</li> <li>${book.year}</li> 
     <div class="bottom-container"> 
       <img src="assets/trash_icon.png" class="trash-icon" onclick="removeBook(${i})"></img>   
-      <p class="read-status">${book.read ? 'Read' : 'Not Read'}</p>
+      <p class="read-status">${book.read ? '~Read~' : 'Not Read'}</p>
       <button class='toggle-read-btn' onclick="toggleRead(${i})">Toggle Read</button>    
       </div>
     </ul>`;

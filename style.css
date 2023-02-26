@@ -101,6 +101,16 @@ button {
   color: rgba(255, 195, 26);
 }
 
+.example-text {
+  font-size: .7rem;
+  font-style: italic;
+  color: rgba(0, 0, 0, .5);
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 150px;
+  text-align: center;
+}
+
 .library-container {
   /* border: solid black 5px; */
   background: rgba(255, 195, 26, .3);
@@ -137,8 +147,8 @@ button {
   overflow: scroll;
 }
 
-.book-bottom {
-  height: 100px;
+ul {
+  margin-left: -30px;
 }
 
 li {
@@ -146,25 +156,26 @@ li {
   margin-top: 20px;
   font-size: .7rem;
   text-align: center;
-  padding-right: 50px;
   word-wrap: break-word;
+  width: 150px;
 }
 
 li:nth-child(1) {
-  font-size: 1rem;
-  ;
+  font-size: 1.3rem;
+  text-shadow: 2px 2px rgb(239, 235, 235);
 }
 
 .read {
   width: 15px;
 }
 
-.trash-icon {
+img.trash-icon {
   width: 20px;
   height: 20px;
   margin-left: -10px;
   margin-bottom: -70px;
   cursor: pointer;
+  position:relative;
 }
 
 .toggle-read-btn {
@@ -175,11 +186,11 @@ li:nth-child(1) {
 
 .read-status {
   font-size: .8rem;
-  margin-left: 80px;
+  margin-left: 72px;
 }
 
 .bottom-container {
-  margin-left: -20px;
+  margin-left: 10px;
   margin-top: 30px;
 }
 
@@ -187,6 +198,10 @@ li:nth-child(1) {
 @media(max-width: 1100px) {
   .page-title {
     font-size: 3rem;
+  }
+
+  .library-container > div {
+    margin-left: 20px;
   }
 
   h2 {
